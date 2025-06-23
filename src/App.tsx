@@ -1,10 +1,13 @@
-import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalCss } from './styles'
+import Rotas from './routes'
 
 function App() {
   return (
-    <div className="App">
-      <h1>olá</h1>{' '}
-    </div>
+    <BrowserRouter>
+      <GlobalCss />
+      <Rotas />
+    </BrowserRouter>
   )
 }
 
