@@ -1,14 +1,17 @@
-import Card from '../CardPrato'
+import CardPrato from '../CardPrato'
 import { CardapioContainer } from './styles'
+import { Prato } from '../../types'
 
-const Cardapio = () => (
+type Props = {
+  cardapio: Prato[]
+  onAbrirModal: (prato: Prato) => void
+}
+
+const Cardapio = ({ cardapio, onAbrirModal }: Props) => (
   <CardapioContainer className="container">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    {cardapio.map((prato) => (
+      <CardPrato key={prato.id} prato={prato} onAbrirModal={onAbrirModal} />
+    ))}
   </CardapioContainer>
 )
 export default Cardapio

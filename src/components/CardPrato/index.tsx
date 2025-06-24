@@ -1,17 +1,27 @@
 import { BotaoAdd, CardBar } from './styles'
 import { Descricao, Img, Titulo } from '../CardRestaurante/styles'
-import pizza from '../../assets/images/pizza.png'
+import { Prato } from '../../types'
+import { formataDescricao } from '../CardRestaurante'
 
-const CardPrato = () => {
+type Props = {
+  prato: Prato
+  onAbrirModal: (prato: Prato) => void
+}
+
+const CardPrato = ({ prato, onAbrirModal }: Props) => {
   return (
-    <CardBar>
-      <Img src={pizza} alt="foto do prato ofertado" />
-      <Titulo>Pizza Marguerita</Titulo>
-      <Descricao>
-        A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-        manjericão fresco e um toque de azeite. Sabor e simplicidade!
-      </Descricao>
-      <BotaoAdd>Adicionar oa carrinho</BotaoAdd>
+    <CardBar onClick={() => onAbrirModal(prato)}>
+      <Img src={prato.foto} alt={prato.nome} />
+      <Titulo>{prato.nome}</Titulo>
+      <Descricao>{formataDescricao(prato.descricao)}</Descricao>
+      <BotaoAdd
+        onClick={(e) => {
+          e.stopPropagation()
+          onAbrirModal(prato)
+        }}
+      >
+        Adicionar ao carrinho - {prato.preco}
+      </BotaoAdd>
     </CardBar>
   )
 }

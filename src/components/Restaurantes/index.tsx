@@ -1,15 +1,17 @@
 import Card from '../CardRestaurante'
 import { RestaurantesLista, RestaurantesContainer } from './styles'
+import { Restaurante } from '../../types'
 
-const Restaurantes = () => (
+type Props = {
+  restaurantes: Restaurante[]
+}
+
+const Restaurantes = ({ restaurantes }: Props) => (
   <RestaurantesContainer>
     <RestaurantesLista className="container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {restaurantes.map((restaurante) => (
+        <Card key={restaurante.id} restaurante={restaurante} />
+      ))}
     </RestaurantesLista>
   </RestaurantesContainer>
 )

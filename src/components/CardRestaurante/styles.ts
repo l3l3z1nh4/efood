@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { cores } from '../../styles'
 
 export const CardBar = styled.div`
@@ -9,7 +10,7 @@ export const CardBar = styled.div`
   color: ${cores.principal};
 
   @media screen and (max-width: 768px) {
-    max-width: 460px;
+    min-width: 460px;
   }
 
   .img-tag {
@@ -35,7 +36,14 @@ export const CardBar = styled.div`
 `
 
 export const Img = styled.img`
+  min-width: 360px;
   max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+
+  @media screen and (max-width: 768px) {
+    min-width: 460px;
+  }
 `
 
 export const Titulo = styled.h1`
@@ -46,6 +54,7 @@ export const Titulo = styled.h1`
 export const Nota = styled.div`
   font-size: 21px;
   display: flex;
+  align-items: center;
 `
 
 export const Estrela = styled.img`
@@ -53,7 +62,7 @@ export const Estrela = styled.img`
   height: 21px;
   margin-left: 8px;
   margin-right: 8px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
 `
 
 export const Descricao = styled.p`
@@ -61,9 +70,10 @@ export const Descricao = styled.p`
   font-weight: 400;
   padding-left: 8px;
   padding-right: 8px;
+  line-height: 22px;
 `
 
-export const Botao = styled.a`
+export const Botao = styled(Link)`
   background-color: ${cores.principal};
   color: ${cores.secundaria};
   padding: 6px;

@@ -1,34 +1,51 @@
 import { Botao, CardBar, Descricao, Estrela, Img, Nota, Titulo } from './styles'
-import foto from '../../assets/images/image1.png'
 import estrela from '../../assets/images/estrela.png'
 import { TagId } from '../Tag/styles'
+import { Restaurante } from '../../types'
 
-const CardRestaurante = () => {
+type Props = {
+  restaurante: Restaurante
+}
+
+export const formataDescricao = (descricao: string) => {
+  const limiteCaracteres = 150
+  if (descricao.length > limiteCaracteres) {
+    return descricao.substring(0, limiteCaracteres - 3) + '...'
+  }
+  return descricao
+}
+
+const CardRestaurante = ({ restaurante }: Props) => {
+  const getTags = (restaurante: Restaurante) => {
+    const tags = []
+
+    if (restaurante.destacado) {
+      tags.push(<TagId key="destaque">Destaque da semana</TagId>)
+    }
+
+    if (restaurante.tipo) {
+      tags.push(<TagId key={restaurante.tipo}>{restaurante.tipo}</TagId>)
+    }
+
+    return tags
+  }
+
   return (
     <CardBar>
       <div className="img-tag">
-        <Img src={foto} alt="foto restaurante" />
-        <div className="tags-container">
-          <TagId>Destaque da semana</TagId>
-          <TagId>Italiana</TagId>
-        </div>
+        <Img src={restaurante.capa} alt={restaurante.titulo} />
+        <div className="tags-container">{getTags(restaurante)}</div>
       </div>
       <div className="nome-nota">
-        <Titulo>Nome do Restaurante</Titulo>
+        <Titulo>{restaurante.titulo}</Titulo>
         <Nota>
-          <Titulo>4.9</Titulo>
+          <Titulo>{restaurante.avaliacao}</Titulo>
           <Estrela src={estrela} alt="estrela" />
         </Nota>
       </div>
-      <Descricao>
-        A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!
-        Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo
-        no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor
-        inesquecível. Peça já!
-      </Descricao>
-      <Botao href="/perfil-restaurante">Saiba mais</Botao>
+      <Descricao>{formataDescricao(restaurante.descricao)}</Descricao>
+      <Botao to={`/perfil-restaurante/${restaurante.id}`}>Saiba mais</Botao>
     </CardBar>
   )
 }
-
 export default CardRestaurante
