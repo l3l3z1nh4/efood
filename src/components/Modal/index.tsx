@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux'
 import {
   CloseBtn,
   ModalContainer,
@@ -9,6 +10,7 @@ import closeBtn from '../../assets/images/close.png'
 import { Descricao } from '../CardRestaurante/styles'
 import { BotaoAdd } from '../CardPrato/styles'
 import { Prato } from '../../types'
+import { adicionar, abrir } from '../../store/reducers/carrinho'
 
 type Props = {
   visivel: boolean
@@ -17,8 +19,16 @@ type Props = {
 }
 
 const Modal = ({ visivel, pratoSelecionado, onFecharModal }: Props) => {
+  const dispatch = useDispatch()
+
   if (!visivel || !pratoSelecionado) {
     return null
+  }
+
+  const addAoCarrinho = () => {
+    dispatch(adicionar(pratoSelecionado))
+    dispatch(abrir())
+    onFecharModal()
   }
 
   return (
@@ -34,8 +44,8 @@ const Modal = ({ visivel, pratoSelecionado, onFecharModal }: Props) => {
             <h1>{pratoSelecionado.nome}</h1>
             <Descricao>{pratoSelecionado.descricao}</Descricao>
             <Descricao>Serve: {pratoSelecionado.porcao}</Descricao>
-            <BotaoAdd>
-              Adicionar ao carrinho - {pratoSelecionado.preco}
+            <BotaoAdd onClick={addAoCarrinho}>
+              Adicionar ao carrinho - {pratoSelecionado.preco.toFixed(2)}
             </BotaoAdd>
           </ModalInfo>
         </ModalConteudo>

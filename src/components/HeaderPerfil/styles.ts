@@ -20,6 +20,7 @@ export const HeaderBar = styled.header`
 
     a {
       max-width: 256px;
+      cursor: pointer;
     }
 
     a:visited {
