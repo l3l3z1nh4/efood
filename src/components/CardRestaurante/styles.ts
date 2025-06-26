@@ -20,7 +20,8 @@ export const ConteudoCard = styled.div`
 
   .img-tag {
     position: relative;
-    height: 100%;
+    margin-bottom: 0;
+    height: 217px;
   }
   .tags-container {
     position: absolute;
@@ -36,7 +37,6 @@ export const ConteudoCard = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 181px;
-    margin-top: -8px;
     padding: 8px;
   }
 
@@ -93,4 +93,5 @@ export const Botao = styled(Link)`
   cursor: pointer;
   font-size: 14px;
   justify-content: center;
+  margin-bottom: 6px;
 `
