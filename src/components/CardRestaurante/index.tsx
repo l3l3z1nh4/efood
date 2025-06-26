@@ -1,4 +1,13 @@
-import { Botao, CardBar, Descricao, Estrela, Img, Nota, Titulo } from './styles'
+import {
+  Botao,
+  CardBar,
+  ConteudoCard,
+  Descricao,
+  Estrela,
+  Img,
+  Nota,
+  Titulo
+} from './styles'
 import estrela from '../../assets/images/estrela.png'
 import { TagId } from '../Tag/styles'
 import { Restaurante } from '../../types'
@@ -32,19 +41,23 @@ const CardRestaurante = ({ restaurante }: Props) => {
 
   return (
     <CardBar>
-      <div className="img-tag">
-        <Img src={restaurante.capa} alt={restaurante.titulo} />
-        <div className="tags-container">{getTags(restaurante)}</div>
-      </div>
-      <div className="nome-nota">
-        <Titulo>{restaurante.titulo}</Titulo>
-        <Nota>
-          <Titulo>{restaurante.avaliacao}</Titulo>
-          <Estrela src={estrela} alt="estrela" />
-        </Nota>
-      </div>
-      <Descricao>{formataDescricao(restaurante.descricao)}</Descricao>
-      <Botao to={`/perfil-restaurante/${restaurante.id}`}>Saiba mais</Botao>
+      <ConteudoCard>
+        <div className="img-tag">
+          <Img src={restaurante.capa} alt={restaurante.titulo} />
+          <div className="tags-container">{getTags(restaurante)}</div>
+        </div>
+        <div className="infos">
+          <div className="nome-nota">
+            <Titulo>{restaurante.titulo}</Titulo>
+            <Nota>
+              <Titulo>{restaurante.avaliacao}</Titulo>
+              <Estrela src={estrela} alt="estrela" />
+            </Nota>
+          </div>
+          <Descricao>{formataDescricao(restaurante.descricao)}</Descricao>
+          <Botao to={`/perfil-restaurante/${restaurante.id}`}>Saiba mais</Botao>
+        </div>
+      </ConteudoCard>
     </CardBar>
   )
 }

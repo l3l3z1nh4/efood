@@ -1,5 +1,5 @@
 import Card from '../CardRestaurante'
-import { RestaurantesLista, RestaurantesContainer } from './styles'
+import { RestaurantesLista, RestaurantesSection } from './styles'
 import { Restaurante } from '../../types'
 
 type Props = {
@@ -7,13 +7,15 @@ type Props = {
 }
 
 const Restaurantes = ({ restaurantes }: Props) => (
-  <RestaurantesContainer>
-    <RestaurantesLista className="container">
-      {restaurantes.map((restaurante) => (
-        <Card key={restaurante.id} restaurante={restaurante} />
-      ))}
-    </RestaurantesLista>
-  </RestaurantesContainer>
+  <RestaurantesSection>
+    <div className="container">
+      <RestaurantesLista>
+        {restaurantes.map((restaurante) => (
+          <Card key={restaurante.id} restaurante={restaurante} />
+        ))}
+      </RestaurantesLista>
+    </div>
+  </RestaurantesSection>
 )
 
 export default Restaurantes

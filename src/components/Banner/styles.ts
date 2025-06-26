@@ -26,14 +26,15 @@ export const BannerBar = styled.div`
     height: 100%;
     width: 100%;
     color: ${cores.branco};
-    gap: 146px;
-    padding: 10px 0px;
-    font-size: 32px;
+    gap: 170px;
+    padding: 20px 0px;
     position: relative;
     h2 {
       font-weight: 100;
+      font-size: 32px;
     }
     h1 {
+      font-size: 32px;
       font-weight: 900;
     }
   }

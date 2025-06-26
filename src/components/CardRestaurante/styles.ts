@@ -4,7 +4,8 @@ import { cores } from '../../styles'
 
 export const CardBar = styled.div`
   background-color: ${cores.branco};
-  max-width: 360px;
+  width: 472px;
+  height: 398px;
   border: 2px solid ${cores.principal};
   border-radius: 2px;
   color: ${cores.principal};
@@ -12,9 +13,14 @@ export const CardBar = styled.div`
   @media screen and (max-width: 768px) {
     min-width: 460px;
   }
+`
+
+export const ConteudoCard = styled.div`
+  width: 100%;
 
   .img-tag {
     position: relative;
+    height: 100%;
   }
   .tags-container {
     position: absolute;
@@ -25,20 +31,26 @@ export const CardBar = styled.div`
     z-index: 1;
   }
 
+  .infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 181px;
+    margin-top: -8px;
+    padding: 8px;
+  }
+
   .nome-nota {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 3px;
     margin-bottom: 8px;
-    padding-left: 8px;
   }
 `
-
 export const Img = styled.img`
-  min-width: 360px;
-  max-width: 100%;
-  height: 180px;
+  width: 100%;
+  height: 217px;
   object-fit: cover;
 
   @media screen and (max-width: 768px) {
@@ -52,7 +64,7 @@ export const Titulo = styled.h1`
 `
 
 export const Nota = styled.div`
-  font-size: 21px;
+  font-size: 18px;
   display: flex;
   align-items: center;
 `
@@ -61,24 +73,24 @@ export const Estrela = styled.img`
   width: 21px;
   height: 21px;
   margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 `
 
 export const Descricao = styled.p`
   font-size: 14px;
   font-weight: 400;
-  padding-left: 8px;
-  padding-right: 8px;
   line-height: 22px;
+  margin-bottom: 8px;
 `
 
 export const Botao = styled(Link)`
   background-color: ${cores.principal};
   color: ${cores.secundaria};
-  padding: 6px;
+  padding: 6px 0px;
   border-radius: 2px;
-  margin: 8px;
-  display: inline-block;
+  display: flex;
+  max-width: 20%;
   cursor: pointer;
+  font-size: 14px;
+  justify-content: center;
 `
