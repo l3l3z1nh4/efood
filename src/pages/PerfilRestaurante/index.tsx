@@ -50,7 +50,7 @@ const Perfil = () => {
       </PerfilRestauranteSection>
     )
   } else {
-    return <div>Carregando informações do restaurante...</div>
+    return <div>Carregando...</div>
   }
 }
 
