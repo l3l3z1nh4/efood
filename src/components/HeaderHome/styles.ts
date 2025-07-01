@@ -9,6 +9,10 @@ export const HeaderBar = styled.header`
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width: 480px) {
+    height: 260px;
+  }
+
   div {
     text-align: center;
     display: block;
@@ -19,6 +23,15 @@ export const HeaderBar = styled.header`
       margin-bottom: 130px;
       width: 125px;
       height: 57.5;
+
+      @media (max-width: 768px) {
+        width: 105px;
+        margin-bottom: 76px;
+      }
+
+      @media screen and (max-width: 480px) {
+        max-width: 90px;
+      }
     }
 
     p {

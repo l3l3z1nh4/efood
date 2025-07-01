@@ -18,17 +18,37 @@ export const HeaderBar = styled.header`
     font-weight: 900;
     color: ${cores.principal};
 
-    a {
-      max-width: 256px;
-      cursor: pointer;
+    @media (max-width: 768px) {
+      font-size: 16px;
     }
 
-    a:visited {
-      color: inherit;
+    @media screen and (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    max-width: 256px;
+    cursor: pointer;
+
+    @media screen and (max-width: 480px) {
+      max-width: 100px;
+    }
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  img {
+    width: 125px;
+
+    @media (max-width: 768px) {
+      width: 90px;
     }
 
-    img {
-      width: 125px;
+    @media screen and (max-width: 480px) {
+      max-width: 70px;
     }
   }
 `

@@ -33,5 +33,8 @@ export const FooterContainer = styled.footer`
     max-width: 480px;
     width: 100%;
     margin-bottom: 38px;
+    @media screen and (max-width: 480px) {
+      max-width: 350px;
+    }
   }
 `

@@ -10,8 +10,8 @@ export const CardBar = styled.div`
   border-radius: 2px;
   color: ${cores.principal};
 
-  @media screen and (max-width: 768px) {
-    min-width: 460px;
+  @media screen and (max-width: 1024px) {
+    max-width: 350px;
   }
 `
 
@@ -52,10 +52,6 @@ export const Img = styled.img`
   width: 100%;
   height: 217px;
   object-fit: cover;
-
-  @media screen and (max-width: 768px) {
-    min-width: 460px;
-  }
 `
 
 export const Titulo = styled.h1`
@@ -94,4 +90,7 @@ export const Botao = styled(Link)`
   font-size: 14px;
   justify-content: center;
   margin-bottom: 6px;
+  @media screen and (max-width: 1024px) {
+    max-width: 90px;
+  }
 `
