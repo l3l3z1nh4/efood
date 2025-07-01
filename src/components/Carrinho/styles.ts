@@ -36,6 +36,14 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   color: ${cores.secundaria};
+
+  @media (max-width: 768px) {
+    max-width: 300px;
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 240px;
+  }
 `
 
 export const Preco = styled.div`
