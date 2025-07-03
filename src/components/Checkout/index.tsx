@@ -189,7 +189,6 @@ const Checkout = () => {
     dispatch(setLoading(true))
 
     try {
-      // Prepara o payload para a requisição API
       const payload = {
         products: itensDoCarrinho.map((item) => ({
           id: item.id,
@@ -217,8 +216,6 @@ const Checkout = () => {
           }
         }
       }
-
-      // Realiza a requisição POST para a API
       const post = await fetch(API, {
         method: 'POST',
         headers: {
