@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { fechar, remover } from '../../store/reducers/carrinho'
+import { abrirCheckout } from '../../store/reducers/checkout'
 import { CartContainer, Overlay, Sidebar, CartItem, Preco } from './styles'
 import lixeira from '../../assets/images/lixo.png'
 import { BotaoAdd as BotaoContinuar } from '../CardPrato/styles'
@@ -20,6 +21,11 @@ const Carrinho = () => {
 
   const calcularValorTotal = () => {
     return itens.reduce((c, item) => c + item.preco, 0)
+  }
+
+  const continuarComEntrega = () => {
+    dispatch(fechar())
+    dispatch(abrirCheckout())
   }
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
@@ -51,10 +57,11 @@ const Carrinho = () => {
           <span>R${calcularValorTotal().toFixed(2)}</span>
         </Preco>
         <BotaoContinuar
-          title="Clique aqui para continuar com a compra"
+          title="Clique aqui para continuar com a entrega"
           type="button"
+          onClick={continuarComEntrega}
         >
-          Continuar com a compra
+          Continuar com a entrega
         </BotaoContinuar>
       </Sidebar>
     </CartContainer>

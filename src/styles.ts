@@ -5,7 +5,8 @@ export const cores = {
   principal: '#E66767',
   secundaria: '#FFEBD9',
   fundo: 'rgba(255, 235, 217, 0.4)',
-  amarelo: '#FFB930'
+  amarelo: '#FFB930',
+  cinza: '#4B4B4B'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -29,7 +30,7 @@ export const GlobalCss = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
-    
+
   @media (max-width: 1080px) {
     max-width: 768px;
   }
