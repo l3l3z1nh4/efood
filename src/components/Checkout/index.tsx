@@ -19,7 +19,7 @@ import {
 } from './styles'
 import { BotaoAdd as Botao } from '../CardPrato/styles'
 
-const API = 'https://fake-api-tau.vercel.app/api/efood/checkout'
+const API = 'https://ebac-fake-api.vercel.app/api/efood/restaurantes'
 
 const Checkout = () => {
   const dispatch = useDispatch()
