@@ -550,7 +550,7 @@ const Checkout = () => {
         {/*etapa CONCLUIDO */}
         {etapa === 'concluido' && (
           <>
-            <h1>Pedido realizado  {orderId}</h1>
+            <h1>Pedido realizado {orderId}</h1>
             <p>
               Estamos felizes em informar que seu pedido já está em processo de
               preparação e, em breve, será entregue no endereço fornecido.
